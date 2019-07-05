@@ -1,0 +1,2 @@
+class UserFight < ApplicationRecord
+end
