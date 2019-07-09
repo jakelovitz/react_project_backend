@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(version: 2019_07_08_160935) do
   create_table "fighters", force: :cascade do |t|
     t.string "name"
     t.string "img_url"
+    t.integer "hp"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -31,22 +32,10 @@ ActiveRecord::Schema.define(version: 2019_07_08_160935) do
   end
 
   create_table "moves", force: :cascade do |t|
-    t.string "name1"
-    t.string "img_url1"
-    t.integer "dp1"
-    t.integer "pp1"
-    t.string "name2"
-    t.string "img_url2"
-    t.integer "dp2"
-    t.integer "pp2"
-    t.string "name3"
-    t.string "img_url3"
-    t.integer "dp3"
-    t.integer "pp3"
-    t.string "name4"
-    t.string "img_url4"
-    t.integer "dp4"
-    t.integer "pp4"
+    t.string "name"
+    t.string "image"
+    t.integer "damage"
+    t.integer "power"
     t.bigint "fighter_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
