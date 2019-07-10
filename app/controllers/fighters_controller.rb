@@ -10,7 +10,7 @@ class FightersController < ApplicationController
        
         @fighter = Fighter.create(:name => params["fighterName"], :img_url => params["fighterImage"], :hp => params["health"])
        
-        @move = Move.create(:name => ["name"], :image => params["image"], :damage => params["damage"], :power => params["power"], :fighter_id => @fighter.id)
+        @move = Move.create(:name => params["name"], :image => params["image"], :damage => params["damage"], :power => params["power"], :fighter_id => @fighter.id)
 
         
 
@@ -21,17 +21,6 @@ class FightersController < ApplicationController
     def show
         render json: Fighter.find(params[:id])
     end
-
-
-    private
-
-#    def fighter_params
-#        params.permit(:name, :img_url, :hp)
-#    end
-
-   def move_params
-       params.permit(:name, :image, :damage, :power)
-   end
 
     
 
