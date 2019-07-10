@@ -8,12 +8,12 @@ class FightersController < ApplicationController
 
     def create
        
-        @fighter = Fighter.find_or_create_by(fighter_params)
+        @fighter = Fighter.create(:name => params["fighterName"], :img_url => params["fighterImage"], :hp => params["health"])
        
-        @moves = Move.find_or_initialize_by(moves_params)
+        @move = Move.create(:name => ["name"], :image => params["image"], :damage => params["damage"], :power => params["power"], :fighter_id => @fighter.id)
 
-        @moves.fighter = @fighter
-        @moves.save
+        
+
         render json: @fighter
     end
 
@@ -25,12 +25,12 @@ class FightersController < ApplicationController
 
     private
 
-   def fighter_params
-       params.permit(:name, :img_url, :hp)
-   end
+#    def fighter_params
+#        params.permit(:name, :img_url, :hp)
+#    end
 
-   def moves_params
-       params.permit(:name, :image, :damage, :power, :fighter_id )
+   def move_params
+       params.permit(:name, :image, :damage, :power)
    end
 
     
