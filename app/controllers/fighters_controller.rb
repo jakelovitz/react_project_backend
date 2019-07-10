@@ -24,6 +24,13 @@ class FightersController < ApplicationController
         render json: @fighter
     end
 
+    def update 
+        @fighter = Fighter.find(params[:id])
+        @fighter.update(name: params["name"], img_url: params["image"])
+        render json: @fighter
+        byebug
+    end
+
 
     def show
         render json: Fighter.find(params[:id])
