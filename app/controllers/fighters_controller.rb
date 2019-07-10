@@ -29,7 +29,20 @@ class FightersController < ApplicationController
         render json: Fighter.find(params[:id])
     end
 
-    
+    def destroy
+        @fighter = Fighter.find(params[:id])
+
+        @moves = @fighter.moves
+
+        @moves.each do |move| 
+            move.destroy
+        end
+
+        
+        @fighter.destroy
+
+        render json: Fighter.all 
+    end
 
 
 end
